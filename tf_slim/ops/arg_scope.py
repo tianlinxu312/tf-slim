@@ -149,9 +149,9 @@ def arg_scope(list_ops_or_scope, **kwargs):
       current_scope = current_arg_scope().copy()
       for op in list_ops_or_scope:
         key = arg_scope_func_key(op)
-        # if not has_arg_scope(op):
-        #   raise ValueError('%s is not decorated with @add_arg_scope',
-        #                   _name_op(op))
+        if not has_arg_scope(op):
+          raise ValueError('%s is not decorated with @add_arg_scope',
+                           _name_op(op))
         if key in current_scope:
           current_kwargs = current_scope[key].copy()
           current_kwargs.update(kwargs)
