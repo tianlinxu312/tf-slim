@@ -96,7 +96,7 @@ def arg_scope_func_key(op):
 
 
 def _name_op(op):
-  return (op.__module__, op.__name__)
+  return (op.__module__, op.name)
 
 
 def _kwarg_names(func):
